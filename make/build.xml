@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="csweb" default="clean" basedir=".">
+  	<description>
+    	Fichero de automatizacion de tareas
+  	</description>
+  <!-- set global properties for this build -->
+  	<property name="export" location="../export"/>
+  	<property name="exportFiles" location="${export}/files"/>
+  	<property name="index" location="../index.html"/>
+  	<property name="files" location="../files"/>
+
+	<target name="export">
+    	<tstamp/>
+		<copy todir="${exportFiles}">
+		    <fileset dir="${files}"/>
+		  </copy>
+		<copy file="${index}" tofile="${export}/index.html"/>
+  	</target>
+
+  	<target name="clean"
+        description="Elimina el directorio de exportacion">
+    	<delete dir="${export}"/>
+  	</target>
+</project>
